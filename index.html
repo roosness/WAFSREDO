@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700,500,300|Lora:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+	
+	<nav>
+		<a href='#' class="icon button">menu</a>
+		<h1>Hold My Beer</h1>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="#beers-1">Beers </a></li>
+			<li><a href="#amsterdam">Amsterdam</a></li>
+			<li><a href="#favorites">Holds</a></li>
+		</ul>
+		
+	</nav>
+	
+	<aside>
+		
+	</aside>
+	<main class=''>
+		
+	</main>
+	
+	<script id='home-template' type='text/x-handlebars-template'>
+		<div class="home-container">
+			
+			<h1 id="maskText">Hold my Beer</h1>
+			<img src="/static/img/beerBlack.svg" alt="">
+			<p>Swipe naar rechts om te beginnen,
+			Browse door de bier database en hold de bieren voor een later moment.
+			</p>
+		</div>
+	</script>
+	<script id='beers-template' type='text/x-handlebars-template'>
+		
+		<ul class='beerList'>
+			{{#each data}}
+				<li id={{id}}>
+					<a href="#{{id}}">
+						
+						<div class="img-wrapper" id={{isOrganic}}>
+								<img src="/static/img/beer.svg" alt="">
+						</div>
+						
+						
+						
+					<span>{{name}}</span>
+				</a></li>
+			{{/each}}
+		</ul>
+		
+		<ul class='pagination'>
+		{{#if pagination.prevPage}}
+			<li><a class='PAG P'href="#beers-{{pagination.prevPage}}" class="pagination">
+				<img src="/static/img/arrow.svg" alt="">
+			</a></li>
+		{{/if}}
+		{{#if pagination.nextPage}}
+			<li><a class='PAG N' href="#beers-{{pagination.nextPage}}" class="pagination"><img src="/static/img/arrow.svg" alt=""></a></li>
+		{{/if}}
+		</ul>
+		
+
+	</script>
+	<script id='loading-template' type='text/x-handlebars-template'>
+	<section class="waiting-container">
+		<img src="/static/img/loader.svg" alt="">
+	</section>
+	</script>
+	<script id='filters-template' type='text/x-handlebars-template'>
+
+		<div href="" id='showFilters' class='button'>
+		<img src="/static/img/crossW.svg" alt="" id='cross'>
+		<span class='middle'>
+			filters
+		{{#if title}}
+		<span id="catTitle">
+			: {{data.1.category.name}}
+		</span>
+		
+		
+		{{/if}}
+		<img src="/static/img/arrow.svg" alt="">
+		</span>
+
+		</div>
+
+		
+			<ul class="filters">
+				{{#each data}}
+					<li class='{{../type}}-item' id='{{id}}'>
+						{{name}} 
+					</li>
+				{{/each}}
+			</ul>
+		
+	
+		
+	</script>
+	<script id="detail-template" type='text/x-handlebars-template'>
+		
+		<article>
+		<p class="message"></p>
+			<header>
+			<section class="image-wrapper">
+				{{#if data.labels.large}}
+				<img src="{{data.labels.large}}" alt="">
+				{{else}}
+				<img src="/static/img/no_image_available.svg" alt="">
+				{{/if}}
+			</section>
+			<section class='info'>
+				
+				
+				<h2 id='beerName'>{{data.name}}</h2>
+				{{#if favorite}}
+				<span class="favorite remove">-</span>
+				{{else}}
+				<span class="favorite add">+</span>
+				{{/if}}
+					<ul>
+						<li>Brewed By: {{data.breweries.0.name}}
+							
+						</li>
+						<li>Style:{{data.style.name}}</li>
+						<li>Serving: serve in a {{data.glass.name}}</li>
+						<li>Availability: {{data.available.description}}</li>
+					</ul>
+					<ul>
+						<li>ABV: {{data.abv}}%</li>
+						<li>IBU: {{data.ibu}}</li>
+						
+					</ul>
+			</section>
+			</header>
+				<section class="content">
+					<p>
+					{{data.description}}
+				</p>
+				
+				<h3>About {{data.breweries.0.name}}</h3>
+				<p>
+					{{data.breweries.0.description}}
+					<a href="{{data.breweries.0.website}}">website</a>
+				</p>
+				</section>
+				
+			
+		</article>
+	</script>
+	<script id="favorites-template" type='text/x-handlebars-template'>
+			{{#if data}}
+			<ul class='beerList'>
+			{{#each data}}
+				<li id={{id}}>
+					<a href="#{{id}}">
+						
+						<div class="img-wrapper" id={{isOrganic}}>
+								<img src="/static/img/beer.svg" alt="">
+						</div>
+						
+						
+						
+					<span>{{name}}</span>
+				</a></li>
+			{{/each}}
+		</ul>
+			{{else}}
+			<p>Looks like you don't have any favorite beers yet...</p>
+			{{/if}}
+		
+		
+	</script>
+	<script id="amsterdam-template" type='text/x-handlebars-template'>
+	<section class="amsterdam">
+		<header>
+			<h1>Beer in Amsterdam</h1>
+		</header>
+
+		<ul>
+			{{#each data}}
+
+			<li>
+				{{#if typeBool}}
+				<a href="#{{id}}">{{name}}</a>
+				<p>{{description}}</p>
+				{{else}}
+				<p>{{name}}</p>
+				<p>{{description}}</p>
+				{{/if}}
+			</li>
+		{{/each}}
+		</ul>
+	</section>
+	</script>
+	<script src='static/js/lib/microajax.minified.js'></script>
+	<script src="static/js/lib/hammer.min.js" type="text/javascript"></script>
+	<script src="static/js/lib/underscore-min.js" type='text/javascript'></script>
+	<script src="static/js/lib/routie.min.js" type="text/javascript"></script>
+	<script src="static/js/lib/handlebars-v4.0.5.js" type="text/javascript"></script>
+	<script src='static/js/favorite.js'></script>
+	<script src='static/js/methods.js'></script>
+	<script src='static/js/behaviour.js'></script>
+	<script src='static/js/api.js'></script>
+	<script src='static/js/template.js'></script>
+	<script src='static/js/router.js'></script>
+	<script src='static/js/main.js'></script>
+	
+</body>
+</html>

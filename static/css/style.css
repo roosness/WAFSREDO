@@ -1,0 +1,356 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu';
+}
+
+body {
+  font-family: sans-serif;
+  padding: 0 0;
+  margin: 0 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  text-align: center;
+  padding: .5em 0 1em;
+  position: relative;
+  background-color: RGBA(247, 195, 120, 1);
+  color: white;
+  z-index: 999;
+}
+nav .icon {
+  position: absolute;
+  right: .5em;
+  top: .5em;
+  background: white;
+  padding: .5em;
+  color: RGBA(247, 195, 120, 1);
+}
+nav .icon.open:before {
+  content: "X ";
+}
+nav h1 {
+  display: inline-block;
+  margin: 0 0;
+}
+nav ul {
+  left: -85vw;
+  position: fixed;
+  background: RGBA(247, 195, 120, 1);
+  width: 80vw;
+  top: 0;
+  margin: 0 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  padding: 0 0;
+  transition: left .2s ease-in-out;
+}
+nav ul.open {
+  left: 0;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.4);
+}
+nav ul li {
+  margin: .5em;
+  padding: 2em;
+  border-bottom: 5px solid white;
+  -webkit-flex: 25%;
+      -ms-flex: 25%;
+          flex: 25%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+nav ul li a {
+  margin: 0;
+  -webkit-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  padding: 2em;
+  color: white;
+  font-size: 1.5em;
+}
+
+aside #showFilters {
+  background: RGBA(120, 174, 222, 1);
+  display: block;
+  width: 100%;
+  color: white;
+  font-size: 1.3em;
+  text-align: center;
+  padding: .7em;
+  position: relative;
+}
+aside #showFilters > span {
+  padding: 0 4em;
+}
+aside #showFilters > span.open img {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+aside #showFilters img {
+  height: 1em;
+  margin: 0 .5em;
+  vertical-align: middle;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  transition: .2s ease-in-out;
+}
+aside #showFilters img#cross {
+  position: absolute;
+  left: 0;
+}
+aside .filters {
+  margin: 0 0;
+  list-style-type: none;
+  padding: 0 0;
+  border-left: 5px solid RGBA(120, 174, 222, 1);
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: .2s ease-in-out;
+}
+aside .filters.open {
+  max-height: 100vh;
+}
+aside .filters li {
+  padding: .5em 1em;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+main .pagination {
+  list-style: none;
+  padding: 0 0;
+  width: 100%;
+  position: relative;
+  height: 3em;
+}
+main .pagination li a {
+  position: absolute;
+  width: 50%;
+  bottom: 0;
+  background: RGBA(120, 174, 222, 1);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .5em;
+}
+main .pagination li a img {
+  height: 2em;
+}
+main .pagination li a.P {
+  left: 0;
+  border-right: 1px solid white;
+}
+main .pagination li a.P img {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+main .pagination li a.N {
+  right: 0;
+  border-left: 1px solid white;
+}
+main .beerList {
+  margin: 0 0;
+  list-style-type: none;
+  padding: 0 0;
+}
+main .beerList li a {
+  border-bottom: 1px solid #E5E5E5;
+  display: block;
+  padding: .5em 1em;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: black;
+}
+main .beerList li a .img-wrapper {
+  width: 2em;
+  display: inline-block;
+  height: 2em;
+  overflow: hidden;
+  background: RGBA(120, 174, 222, 1);
+  border-radius: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .5em;
+}
+main .beerList li a .img-wrapper.Y {
+  background: RGBA(146, 202, 134, 1) !important;
+}
+main .beerList li a .img-wrapper img {
+  height: 100%;
+}
+main .beerList li a span {
+  padding-left: 2em;
+}
+main .message {
+  color: RGBA(146, 202, 134, 1);
+  width: 80vw;
+  margin: 0 auto;
+  padding: .5em;
+  margin-top: 2em;
+}
+main article header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+main article header .image-wrapper {
+  -webkit-flex: 30%;
+      -ms-flex: 30%;
+          flex: 30%;
+  padding: 0 0;
+  text-align: center;
+  margin-left: 2em;
+}
+main article header .image-wrapper img {
+  max-width: 10em;
+}
+main article header .info {
+  padding: 0 2em;
+  -webkit-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
+  position: relative;
+}
+main article header .info .favorite {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background: RGBA(120, 174, 222, 1);
+  border-radius: 100%;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  padding: .4em;
+  box-sizing: border-box;
+  font-size: 1.7em;
+  color: white;
+  box-shadow: 1px 1px 11px 0px rgba(50, 50, 50, 0.58);
+}
+main article header .info h2 {
+  margin-top: 0;
+}
+main article header .info ul:nth-of-type(2) li {
+  display: inline-block;
+  margin-right: .5em;
+}
+main article .content {
+  padding: 0 2em;
+}
+main article .content p {
+  max-width: 40em;
+}
+main article .content a {
+  display: block;
+}
+
+img {
+  max-width: 3em;
+}
+
+.home-container {
+  text-align: center;
+}
+.home-container h1 {
+  font-size: 20vw;
+  margin-bottom: 0;
+}
+.home-container img {
+  margin: 1.5em;
+}
+.home-container p {
+  max-width: 60vw;
+  margin: 0 auto;
+}
+
+.amsterdam header {
+  padding: 0.5em;
+}
+.amsterdam ul li {
+  border-bottom: 1px solid #E5E5E5;
+  display: block;
+  padding: .5em 1em;
+}
+.amsterdam ul li a {
+  display: block;
+  border-left: 0.5em solid RGBA(146, 202, 134, 1);
+  padding-left: .5em;
+  color: black;
+}
+
+.waiting-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 90vh;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.waiting-container img {
+  width: 7em;
+}
+
+@media screen and (max-width: 650px) {
+  article header {
+    -webkit-flex-wrap: no-wrap;
+        -ms-flex-wrap: no-wrap;
+            flex-wrap: no-wrap;
+  }
+  article header > * {
+    -webkit-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    padding: 0 0;
+    margin: 0 0;
+  }
+  article header .image-wrapper {
+    margin-left: 0;
+  }
+}

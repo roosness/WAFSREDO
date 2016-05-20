@@ -1,0 +1,253 @@
+$yellow: RGBA(247, 243, 213, 1.00);
+$dark: RGBA(48, 47, 52, 1.00);
+$yellow2:RGBA(240, 235, 216, 1.00);
+$brown:RGBA(166, 137, 91, 1.00);
+$blue: #3a9bdc;
+h1, h2, h3, h4, h5, h6 {
+	font-family:'Ubuntu';
+}
+
+
+body {
+	font-family: 'Helvetica', sans-serif;
+	
+	padding:.5em;
+	margin: 0 0;
+	
+}
+
+
+#maskText {
+    font-size: 20vw;
+    
+}
+a.button {
+	
+	margin:.5em;
+	padding:.3em .7em;
+	font-family:'Ubuntu';
+	text-transform:uppercase;
+	text-decoration:none;
+	color:$dark;
+	border:5px solid black;
+	text-align:center;
+}
+
+nav {
+	height:1em;
+	
+	.icon {
+		float:right;
+		
+		
+		&.open:before {
+			content: 'X '
+		}
+	}
+	ul {
+		display:none;
+		background:white;
+		list-style-type:none;
+		height:100%;
+		position:fixed;
+		opacity:0;
+		top:0;
+		left:-90vw;
+		padding: 0 0;
+		margin:  0 0;
+		width:80vw;
+		display:flex;
+		flex-direction:column;
+		justify-content:space-between;
+		transition:left .2s ease-in-out;
+		transition:all .5s ease-in-out;
+		li {
+			flex:25%;
+			
+			margin: 0 0;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			border-bottom:2px solid black;
+			background:white;
+			transition:.2s ease-in-out;
+			&:hover {
+					background-color:#BCEEFF;
+					color:white;
+				}
+			a {
+				text-decoration:none;
+				color:black;
+				width:50vw;
+				text-align:center;
+				padding:1em 0;
+				
+				display:block;
+				
+				text-transform:uppercase;
+				
+				font-family:'Ubuntu', sans-serif;
+				font-size:2em;
+				
+				
+			}
+		}
+		
+		&.open {
+			left:0;
+			opacity:1;
+			box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+		}
+	}
+}
+aside {
+	
+	margin: 0 0;
+	text-align:center;
+	
+	#showFilters {
+		margin:.5em auto;
+		position:absolute;
+		top:.5em;
+		img {
+			height:.8em;
+			vertical-align:middle;
+			 transform: rotate(90deg);
+		}
+		
+		&.open {
+			
+		}
+}
+.filters {
+	background-color:white;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	min-height:100%;
+	opacity:0;
+	display:none;
+	&.open {
+		opacity:1;
+		display:block;
+	}
+	
+	
+	& > * {
+		
+	}
+	& > img {
+		max-height:1em;
+		position:absolute;
+		right:.7em;
+		top:.7em;
+		width:1.2em;
+	}
+	h2 {
+		color:#3a9bdc;
+		font-weight:lighter;
+	}
+	ul {
+		list-style-type:none;
+		padding: 0 0;
+		margin: 0 0;
+	
+		
+		li {
+			
+			color:#3a9bdc;
+			
+			flex-basis:2em;
+			font-family:sans-serif;
+			padding:.5em;
+			img {
+				width:1em;
+				float:right;
+			}
+			&:nth-of-type(odd){
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3a9bdc+0,7db9e8+100&0.41+0,0.15+28,0+57,0+100 */
+				background: -moz-linear-gradient(left, rgba(58,155,220,0.41) 0%, rgba(77,163,223,0.15) 28%, rgba(96,172,227,0) 57%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(left, rgba(58,155,220,0.41) 0%,rgba(77,163,223,0.15) 28%,rgba(96,172,227,0) 57%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to right, rgba(58,155,220,0.41) 0%,rgba(77,163,223,0.15) 28%,rgba(96,172,227,0) 57%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#693a9bdc', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 */
+				color:#3a9bdc
+			}
+		}
+	}
+}
+}
+main {
+	margin-top:2em;
+	
+	
+	
+	&.hide {
+		height:0;
+	overflow:hidden;
+	}
+	
+	ul.beerList {
+		max-width:80vw;
+		margin: 0 auto;
+		padding: 0 0;
+		list-style-type:none;
+		
+		li {
+			
+			 a {
+			height:3em;
+			background:$blue;
+			color:white;
+			margin:.3em 0;
+			display:flex;
+			text-decoration:none;
+			
+			div{
+				width:3em;
+				height:3em;
+				display:flex;
+				justify-content:space-around;
+				flex-direction:column;
+				
+				img {
+					max-width:100%;
+					max-height:100%;
+					background:$blue;
+				}
+				span {
+					font-size:.7em;
+					text-align:center;
+				}
+			}
+			& > span {
+				display:flex;
+				justify-content:space-around;
+				flex-direction:column;
+				padding-left:2em;
+			}
+		}
+		}
+	}
+}
+   
+.home-container {
+
+	text-align:center;
+	padding:1em;
+	
+	h1 {
+		margin-bottom:.5em;
+		
+	}
+	img {
+		width:3em;
+	}
+	p {
+		max-width:70vw;
+		margin: 0 auto;
+	}
+	
+	
+
+}
